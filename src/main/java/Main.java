@@ -3,8 +3,8 @@ public class Main {
 
         CustomArrayList<String> list = new CustomArrayList();
 
-        for (int i = 0; i <= 10; i++) {
-            list.add("String element: " + i);
+        for (int i = 0; i <= 20; i++) {
+            list.add(0,"String element: " + i);
         }
 
 

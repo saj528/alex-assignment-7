@@ -33,6 +33,8 @@ public class CustomArrayList<T> implements CustomList<T> {
     @Override
     public boolean add(int index, T item) throws IndexOutOfBoundsException {
 
+        arraySizeCheck();
+
         for (int i = getSize(); i >= index; i--) {
             items[i + 1] = items[i];
         }
@@ -56,7 +58,7 @@ public class CustomArrayList<T> implements CustomList<T> {
     }
 
     private void arraySizeCheck() {
-        if (getSize() == items.length) {
+        if (getSize() >= (items.length - 2)) {
             items = Arrays.copyOf(items, items.length * 2);
         }
     }
