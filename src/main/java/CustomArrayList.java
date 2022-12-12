@@ -35,7 +35,7 @@ public class CustomArrayList<T> implements CustomList<T> {
 
         arraySizeCheck();
 
-        for (int i = getSize(); i >= index; i--) {
+        for (int i = getSize(); i >= index && i < items.length - 1; i--) {
             items[i + 1] = items[i];
         }
         items[index] = item;
@@ -58,7 +58,7 @@ public class CustomArrayList<T> implements CustomList<T> {
     }
 
     private void arraySizeCheck() {
-        if (getSize() >= (items.length - 2)) {
+        if (getSize() == 10) {
             items = Arrays.copyOf(items, items.length * 2);
         }
     }
