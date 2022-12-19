@@ -58,7 +58,7 @@ public class CustomArrayList<T> implements CustomList<T> {
     }
 
     private void arraySizeCheck() {
-        if (getSize() == 10) {
+        if (getSize() == items.length) {
             items = Arrays.copyOf(items, items.length * 2);
         }
     }
