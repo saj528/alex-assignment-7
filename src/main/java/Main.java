@@ -3,7 +3,7 @@ public class Main {
 
         CustomArrayList<String> list = new CustomArrayList();
 
-        for (int i = 0; i <= 9; i++) {
+        for (int i = 0; i <= 10; i++) {
             list.add(0,"String element: " + i);
         }
 
