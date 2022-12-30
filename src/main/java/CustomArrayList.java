@@ -33,9 +33,7 @@ public class CustomArrayList<T> implements CustomList<T> {
     @Override
     public boolean add(int index, T item) throws IndexOutOfBoundsException {
 
-        if (index > getSize()) {
-            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
-        }
+        indexOutOfBounds(index);
 
         arraySizeCheck();
 
@@ -51,14 +49,23 @@ public class CustomArrayList<T> implements CustomList<T> {
     @Override
     public T remove(int index) throws IndexOutOfBoundsException {
 
+        indexOutOfBounds(index);
+
         T removedElement = (T) items[index];
 
-        for (int i = 0; i < (size - index); i++) {
-            items[index + i] = items[index + i + 1];
+        for (int i = index; i < (items.length - 1); i++) {
+            items[i] = items[i + 1];
 
         }
+        items[items.length - 1] = null;
         size--;
         return removedElement;
+    }
+
+    private void indexOutOfBounds(int index) {
+        if (index > getSize() || index < 0) {
+            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds");
+        }
     }
 
     private void arraySizeCheck() {
